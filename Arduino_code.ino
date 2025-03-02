@@ -286,13 +286,14 @@ void displayNumber(PowerDataStrings datastrings)
     uint16_t y = (maxHeight - tbh) / 2 + tbh -10; //10 = manuell offset
 
     // Use Partial Window for better performance
-    display.setPartialWindow(0, y - tbh, maxWidth, tbh);
+    display.setPartialWindow(0, y - tbh+5, maxWidth, tbh);
     display.firstPage();
     do
     {
         display.fillRect(0, y - tbh, maxWidth, tbh, GxEPD_WHITE); // Clear full line
         display.setCursor(x, y);
         display.print(datastrings.currentPowerStr);
+
     }
     while (display.nextPage());
 
